@@ -1,7 +1,14 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import Login from './Login'
 
 function App() {
-  console.log('im here')
-  return <h2>Hello, World!</h2>
+  return (
+    <>
+      <BrowserRouter>
+        <Login />
+      </BrowserRouter>
+    </>
+  )
 }
 export default App
