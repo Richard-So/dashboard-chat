@@ -18,7 +18,8 @@
   "dependencies": {
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
-    "pg": "^8.8.0"
+    "pg": "^8.8.0",
+    "react-pro-sidebar": "^1.0.0-alpha.7"
   },
   "babel": {
     "presets": [
@@ -43,8 +44,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
+    "react-query": "^3.39.2",
     "react-router-dom": "^6.4.3",
-    "sequelize": "^6.25.3",
+    "sequelize": "^6.25.5",
+    "sequelize-cli": "^6.5.2",
+    "sqlite3": "^5.1.2",
     "tailwindcss": "^3.2.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
