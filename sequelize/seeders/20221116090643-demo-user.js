@@ -7,8 +7,8 @@ module.exports = {
         {
           username: 'admin',
           first_name: 'Richard',
-          last_name: 'So',
           password: 'admin1234',
+          email: 'pimfy1@hotmail.com',
           created_at: new Date(),
           updated_at: new Date(),
         },
@@ -33,8 +33,8 @@ module.exports = {
         {
           username: 'admin',
           first_name: 'Richard',
-          last_name: 'So',
           password: 'admin1234',
+          email: 'pimfy1@hotmail.com',
           created_at: new Date(),
           updated_at: new Date(),
         },

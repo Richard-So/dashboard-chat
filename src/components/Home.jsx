@@ -11,11 +11,11 @@ import HallOfFame from './HallOfFame'
 function Home() {
   return (
     <>
-      <div className="bg-bg-img2 bg-cover min-h-screen flex">
+      <div className="min-h-screen flex bg-slate-900 text-white">
         <Nav />
         <main>
           <Routes>
-            <Route path="dashboard" element={<Dashboard />}>
+            <Route path="/" element={<Dashboard />}>
               <Route path="chat" element={<Chat />} />
               <Route path="market" element={<Market />} />
               <Route path="profile" element={<Profile />} />

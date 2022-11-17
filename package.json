@@ -6,7 +6,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "run-p webpack server css",
-    "dev": "run-p client server css",
+    "dev": "run-p client dev:server css",
+    "dev:server": "nodemon server",
     "webpack": "webpack --config ./src/webpack.config.js",
     "client": "npm run webpack -- --watch",
     "server": "node server",
@@ -19,7 +20,8 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.20",
     "pg": "^8.8.0",
-    "react-pro-sidebar": "^1.0.0-alpha.7"
+    "react-pro-sidebar": "^1.0.0-alpha.7",
+    "superagent": "^8.0.3"
   },
   "babel": {
     "presets": [

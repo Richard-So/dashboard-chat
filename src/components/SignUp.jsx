@@ -1,14 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiUser } from 'react-icons/bi'
 import { TiStarFullOutline } from 'react-icons/ti'
 import { RiLockPasswordLine, RiProfileLine } from 'react-icons/ri'
 import { HiOutlineMail } from 'react-icons/hi'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { signUpRequest } from '../api/loginSignUp'
 
 function SignUp() {
+  const navigate = useNavigate()
+
+  const [signUpForm, setSignUpForm] = useState({
+    username: '',
+    password: '',
+    firstName: '',
+    email: '',
+  })
+
+  function handleChange(e) {
+    setSignUpForm({
+      ...signUpForm,
+      [e.target.name]: e.target.value,
+    })
+  }
+  async function submit() {
+    const result = await signUpRequest(signUpForm)
+    setSignUpForm({
+      username: '',
+      password: '',
+      firstName: '',
+      email: '',
+    })
+    console.log(result)
+    navigate('/')
+  }
+  function handleClick(e) {
+    e.preventDefault()
+    submit()
+  }
+
+  function handleKeyUp(e) {
+    e.preventDefault()
+    e.key === 'Enter' ? submit() : null
+  }
+
   return (
     <>
-      <div className="justify-center items-center min-h-screen flex flex-col bg-bg-img bg-cover">
+      <div className="justify-center items-center min-h-screen flex flex-col bg-bg-img8 bg-cover">
         <div className="px-10 pb-10 opacity-70 rounded-lg text-center bg-slate-50 text-black hover:opacity-80">
           <span className="flex justify-center">
             <i className="text-6xl text-center text-yellow-300 py-6">
@@ -27,6 +64,9 @@ function SignUp() {
               <input
                 type="text"
                 placeholder="Username *"
+                name="username"
+                onChange={handleChange}
+                value={signUpForm.username}
                 required
                 className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
               />
@@ -40,6 +80,9 @@ function SignUp() {
               <input
                 type="password"
                 placeholder="Password *"
+                name="password"
+                onChange={handleChange}
+                value={signUpForm.password}
                 required
                 className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
               />
@@ -52,7 +95,10 @@ function SignUp() {
               </div>
               <input
                 type="text"
-                placeholder="First Name *"
+                placeholder="First name *"
+                name="firstName"
+                onChange={handleChange}
+                value={signUpForm.firstName}
                 required
                 className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
               />
@@ -65,13 +111,20 @@ function SignUp() {
               </div>
               <input
                 type="email"
-                placeholder="user@example.com"
+                placeholder="user@example.com *"
+                name="email"
+                onChange={handleChange}
+                onKeyUp={handleKeyUp}
+                value={signUpForm.email}
                 required
-                pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/"
+                pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
                 className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
               />
             </div>
-            <button className="bg-black text-gray-400 px-1 py-1 rounded-full hover:bg-gray-600 hover:text-white">
+            <button
+              onClick={handleClick}
+              className="bg-black text-gray-400 px-1 py-1 rounded-full hover:bg-gray-600 hover:text-white"
+            >
               SIGN UP
             </button>
           </form>

@@ -4,13 +4,20 @@ import { createRoot } from 'react-dom/client'
 import { ProSidebarProvider } from 'react-pro-sidebar'
 
 import App from './components/App'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+const queryClient = new QueryClient()
 
 document.addEventListener('DOMContentLoaded', () => {
   createRoot(document.getElementById('app')).render(
     <BrowserRouter>
-      <ProSidebarProvider>
-        <App />
-      </ProSidebarProvider>
+      <QueryClientProvider client={queryClient}>
+        <ProSidebarProvider>
+          <App />
+        </ProSidebarProvider>
+        <ReactQueryDevtools initialIsOpen={true} />
+      </QueryClientProvider>
     </BrowserRouter>
   )
 })
