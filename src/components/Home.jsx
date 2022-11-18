@@ -11,9 +11,9 @@ import HallOfFame from './HallOfFame'
 function Home() {
   return (
     <>
-      <div className="min-h-screen flex bg-slate-900 text-white">
+      <div className="h-screen w-screen flex bg-slate-900 text-white">
         <Nav />
-        <main>
+        <main className="w-full">
           <Routes>
             <Route path="/" element={<Dashboard />}>
               <Route path="chat" element={<Chat />} />

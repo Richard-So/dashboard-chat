@@ -11,9 +11,11 @@ function Nav() {
     <Sidebar backgroundColor="#1e293b" className="min-h-screen">
       <div className="flex flex-col justify-center items-center text-center py-3">
         <h2 className="text-2xl py-3">ADMIN</h2>
-        <i className="text-9xl border-2 border-solid border-slate-400 rounded-full p-9 bg-gray-400">
-          <FaUserAlt />
-        </i>
+        <div className="text-9xl border-2 border-solid  rounded-full p-9 bg-gray-400 border-green-400">
+          <i>
+            <FaUserAlt />
+          </i>
+        </div>
         <h2 className="text-lg pt-3 text-green-400">Richard</h2>
       </div>
       <Menu
