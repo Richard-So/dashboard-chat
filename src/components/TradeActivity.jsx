@@ -8,7 +8,7 @@ function TradeActivity() {
           <h2 className="text-2xl">TRADE ACITIVITY</h2>
           <h3 className="text-green-400 text-xs">Welcome to your dashboard</h3>
         </div>
-        <div className="flex flex-row h-full w-full items-center justify-evenly">
+        <div className="flex flex-row h-full flex-grow border-2 border-solid border-white m-5">
           <div className="h-full w-full bg-slate-800">chat</div>
         </div>
       </div>

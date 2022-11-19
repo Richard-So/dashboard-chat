@@ -8,14 +8,18 @@ function EditUser() {
           <h2 className="text-2xl">USER SETTINGS</h2>
           <h3 className="text-green-400 text-xs">Welcome to your dashboard</h3>
         </div>
-        <div className="flex flex-row h-full w-full items-center justify-evenly">
+        <div className="flex flex-row h-full flex-grow border-2 border-solid border-white m-5">
           <div className="h-full w-full bg-slate-800">
-            <div>
-              <div>RICHARD SO</div>
-              <div>Admin / Individual Account</div>
+            <div className="m-5">
+              <div className="text-3xl italic font-bold text-green-400">
+                RICHARD SO
+              </div>
+              <div className="text-xl italic">Admin / Individual Account</div>
             </div>
-            <div>
-              <div>PERSONAL DETAILS</div>
+            <div className="m-5">
+              <div className="text-2xl border-b-2 border-solid border-white">
+                PERSONAL DETAILS
+              </div>
               <div>
                 <div></div>
                 <div></div>
