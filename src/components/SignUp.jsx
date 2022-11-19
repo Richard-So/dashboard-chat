@@ -13,6 +13,7 @@ function SignUp() {
     username: '',
     password: '',
     firstName: '',
+    lastName: '',
     email: '',
   })
 
@@ -99,6 +100,22 @@ function SignUp() {
                 name="firstName"
                 onChange={handleChange}
                 value={signUpForm.firstName}
+                required
+                className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
+              />
+            </div>
+            <div className="flex flex-row pb-3">
+              <div className="text-3xl">
+                <i>
+                  <RiProfileLine />
+                </i>
+              </div>
+              <input
+                type="text"
+                placeholder="Last name *"
+                name="lastName"
+                onChange={handleChange}
+                value={signUpForm.lastName}
                 required
                 className="bg-gray-200 border-none outline-none pl-3 ml-3 rounded-full focus:bg-white"
               />

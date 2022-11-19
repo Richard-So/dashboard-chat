@@ -5,6 +5,7 @@ import { BiTransferAlt } from 'react-icons/bi'
 import { RiStockFill } from 'react-icons/ri'
 import { AiOutlineStock } from 'react-icons/ai'
 import { GiPodiumWinner } from 'react-icons/gi'
+import { Link } from 'react-router-dom'
 
 function Nav() {
   return (
@@ -29,7 +30,7 @@ function Nav() {
         })}
         className="justify-center items-center flex flex-col text-left"
       >
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard" />}>
           <div className="flex flex-row mx-3 items-center">
             <i className="text-3xl pr-3 text-green-400">
               <FaHome />
@@ -38,7 +39,7 @@ function Nav() {
           </div>
         </MenuItem>
         <div className="pl-4 py-4 text-gray-500">USER</div>
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard/user" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <FaUserCog />
@@ -46,7 +47,7 @@ function Nav() {
             <div> User Settings </div>
           </div>
         </MenuItem>
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard/trade-activity" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <BiTransferAlt />
@@ -55,7 +56,7 @@ function Nav() {
           </div>
         </MenuItem>
         <div className="pl-4 py-4 text-gray-500">MARKET</div>
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard/market" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <AiOutlineStock />
@@ -63,7 +64,7 @@ function Nav() {
             <div>NZX</div>
           </div>
         </MenuItem>
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard/live-transactions" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <RiStockFill />
@@ -71,7 +72,7 @@ function Nav() {
             <div>Live Transactions</div>
           </div>
         </MenuItem>
-        <MenuItem>
+        <MenuItem routerLink={<Link to="/dashboard/hall-of-fame" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <GiPodiumWinner />

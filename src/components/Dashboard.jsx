@@ -9,12 +9,16 @@ function Dashboard() {
           <h2 className="text-2xl">DASHBOARD</h2>
           <h3 className="text-green-400 text-xs">Welcome to your dashboard</h3>
         </div>
-        <div className="flex flex-row h-full w-full items-center justify-evenly">
-          <div className="flex flex-col w-[45%] h-full justify-evenly">
-            <div className="h-[40%] bg-slate-800  ">equity graph</div>
-            <div className="h-[40%] bg-slate-800  ">NZX</div>
+        <div className="grid grid-cols-2 grid-rows-2 gap-4 h-full border-2 border-solid border-white m-5">
+          <div className="col-start-1 row-span-1 col-span-1 border-2 border-solid border-green-800">
+            equity graph
           </div>
-          <div className="h-[87%] w-[45%] bg-slate-800">chat</div>
+          <div className="col-start-1 row-span-1 col-span-1 border-2 border-solid border-red-800">
+            equity status
+          </div>
+          <div className="col-start-2 row-start-1 border-2 row-span-2 col-span-1 border-solid border-orange-800">
+            chat
+          </div>
         </div>
         <Outlet />
       </div>

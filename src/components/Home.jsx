@@ -2,11 +2,12 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './Nav'
 import Dashboard from './Dashboard'
-import Chat from './Chat'
 import Market from './Market'
-import Profile from './Profile'
-import EditProfile from './EditProfile'
+import EditUser from './EditUser'
 import HallOfFame from './HallOfFame'
+import TradeActivity from './TradeActivity'
+import LiveTransactions from './LiveTransactions'
+import Equity from './Equity'
 
 function Home() {
   return (
@@ -15,13 +16,13 @@ function Home() {
         <Nav />
         <main className="w-full">
           <Routes>
-            <Route path="/" element={<Dashboard />}>
-              <Route path="chat" element={<Chat />} />
-              <Route path="market" element={<Market />} />
-              <Route path="profile" element={<Profile />} />
-              <Route path="profile/:userName" element={<EditProfile />} />
-              <Route path="hall-of-fame" element={<HallOfFame />} />
-            </Route>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="user" element={<EditUser />} />
+            <Route path="trade-activity" element={<TradeActivity />} />
+            <Route path="market" element={<Market />} />
+            <Route path="market/:symbol" element={<Equity />} />
+            <Route path="live-transactions" element={<LiveTransactions />} />
+            <Route path="hall-of-fame" element={<HallOfFame />} />
           </Routes>
         </main>
       </div>
