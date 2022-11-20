@@ -1,9 +1,13 @@
 const express = require('express')
-const { User } = require('../../sequelize/models')
+const { User, Portfolio } = require('../../sequelize/models')
 
 const router = express.Router()
 
 module.exports = router
+
+function token(user) {
+  return { username: user.username, password: user.password }
+}
 
 // GET /api/v1/users
 router.get('/', async (req, res) => {
@@ -16,13 +20,15 @@ router.get('/', async (req, res) => {
 router.post('/loginRequest', async (req, res) => {
   try {
     const { username, password } = req.body // {username:admin, password:admin1234}
-    const users = await User.findOne({
+    const user = await User.findOne({
       where: {
         username,
         password,
       },
     })
-    users === null ? (res.json(users), res.sendStatus(401)) : res.json(users)
+    user === null
+      ? (res.json(user), res.sendStatus(401))
+      : res.json(token(user))
   } catch (error) {
     console.error(error.message)
   }
@@ -30,11 +36,12 @@ router.post('/loginRequest', async (req, res) => {
 
 router.post('/signUp', async (req, res) => {
   try {
-    const { username, password, firstName, email } = req.body // {username:admin, password:admin1234}
+    const { username, password, firstName, lastName, email } = req.body // {username:admin, password:admin1234}
     const users = await User.create({
       username,
       password,
       first_name: firstName.charAt(0).toUpperCase() + firstName.slice(1),
+      last_name: lastName.charAt(0).toUpperCase() + lastName.slice(1),
       email,
     })
     users === null
@@ -45,4 +52,34 @@ router.post('/signUp', async (req, res) => {
   }
 })
 
-// router.post('/', async (req, res) => {})
+// for editing user details
+router.post('/editUser', async (req, res) => {
+  try {
+    const { username, password } = req.body // {username:admin, password:admin1234
+    const user = await User.findOne({
+      where: {
+        username,
+        password,
+      },
+    })
+    user === null ? (res.json(user), res.sendStatus(401)) : res.json(user)
+  } catch (error) {
+    console.error(error.message)
+  }
+})
+
+router.post('/portfolio', async (req, res) => {
+  try {
+    const { username } = req.body // {username:admin, password:admin1234
+    const portfolio = await Portfolio.findAll({
+      where: {
+        username,
+      },
+    })
+    portfolio === null
+      ? (res.json(portfolio), res.sendStatus(401))
+      : res.json(portfolio)
+  } catch (error) {
+    console.error(error.message)
+  }
+})

@@ -3,10 +3,10 @@ import { BiUser } from 'react-icons/bi'
 import { TiStarFullOutline } from 'react-icons/ti'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
-import { loginRequest } from '../api/loginSignUp'
+import { loginRequest } from '../api/user'
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+function Login({ setToken, setSignUp }) {
   const navigate = useNavigate()
   const [loginFailed, setLoginFailed] = useState(false)
   const [loginForm, setLoginForm] = useState({
@@ -20,12 +20,13 @@ function Login() {
       [e.target.name]: e.target.value,
     })
   }
-
+  function handleSignUp() {
+    setSignUp(() => true)
+  }
   async function submit() {
     const result = await loginRequest(loginForm)
-    console.log(result) // authentication 관련 토큰? 세션 스토리지 준비해야함.
     result != null
-      ? navigate('/dashboard')
+      ? (setToken(result), setSignUp(() => false))
       : (setLoginFailed(true),
         setLoginForm({
           username: '',
@@ -96,11 +97,13 @@ function Login() {
               LOG IN
             </button>
             <label className="">Don't have an account?</label>
-            <Link to="/sign-up">
-              <button className="bg-black text-gray-400 px-1 py-1 rounded-full hover:bg-gray-600 hover:text-white w-64">
-                CREATE A FREE ACCOUNT
-              </button>
-            </Link>
+
+            <button
+              onClick={handleSignUp}
+              className="bg-black text-gray-400 px-1 py-1 rounded-full hover:bg-gray-600 hover:text-white w-64"
+            >
+              CREATE A FREE ACCOUNT
+            </button>
           </div>
         </div>
       </div>

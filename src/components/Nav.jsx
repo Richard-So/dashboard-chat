@@ -6,8 +6,21 @@ import { RiStockFill } from 'react-icons/ri'
 import { AiOutlineStock } from 'react-icons/ai'
 import { GiPodiumWinner } from 'react-icons/gi'
 import { Link } from 'react-router-dom'
+import { useQuery } from 'react-query'
+import { editUser } from '../api/user'
 
 function Nav() {
+  // const token = useQuery('token', () =>
+  //   JSON.parse(localStorage.getItem('token'))
+  // )
+
+  // const user = useQuery(['user'], () => editUser(token?.data))
+
+  // if (user.isLoading)
+  //   return <span className="text-4xl text-gray-300 m-5">Loading...</span>
+
+  // if (user.isError) return <span>Error: {error.message}</span>
+
   return (
     <Sidebar backgroundColor="#1e293b" className="min-h-screen">
       <div className="flex flex-col justify-center items-center text-center py-3">
@@ -30,7 +43,7 @@ function Nav() {
         })}
         className="justify-center items-center flex flex-col text-left"
       >
-        <MenuItem routerLink={<Link to="/dashboard" />}>
+        <MenuItem routerLink={<Link to="/" />}>
           <div className="flex flex-row mx-3 items-center">
             <i className="text-3xl pr-3 text-green-400">
               <FaHome />
@@ -39,7 +52,7 @@ function Nav() {
           </div>
         </MenuItem>
         <div className="pl-4 py-4 text-gray-500">USER</div>
-        <MenuItem routerLink={<Link to="/dashboard/user" />}>
+        <MenuItem routerLink={<Link to="/user" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <FaUserCog />
@@ -47,7 +60,7 @@ function Nav() {
             <div> User Settings </div>
           </div>
         </MenuItem>
-        <MenuItem routerLink={<Link to="/dashboard/trade-activity" />}>
+        <MenuItem routerLink={<Link to="/trade-activity" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <BiTransferAlt />
@@ -56,7 +69,7 @@ function Nav() {
           </div>
         </MenuItem>
         <div className="pl-4 py-4 text-gray-500">MARKET</div>
-        <MenuItem routerLink={<Link to="/dashboard/market" />}>
+        <MenuItem routerLink={<Link to="/market" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <AiOutlineStock />
@@ -64,7 +77,7 @@ function Nav() {
             <div>NZX</div>
           </div>
         </MenuItem>
-        <MenuItem routerLink={<Link to="/dashboard/live-transactions" />}>
+        <MenuItem routerLink={<Link to="/live-transactions" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <RiStockFill />
@@ -72,7 +85,7 @@ function Nav() {
             <div>Live Transactions</div>
           </div>
         </MenuItem>
-        <MenuItem routerLink={<Link to="/dashboard/hall-of-fame" />}>
+        <MenuItem routerLink={<Link to="/hall-of-fame" />}>
           <div className="flex flex-row mx-3 items-center ">
             <i className="text-3xl pr-3 text-green-400">
               <GiPodiumWinner />

@@ -4,9 +4,9 @@ import { TiStarFullOutline } from 'react-icons/ti'
 import { RiLockPasswordLine, RiProfileLine } from 'react-icons/ri'
 import { HiOutlineMail } from 'react-icons/hi'
 import { useNavigate } from 'react-router-dom'
-import { signUpRequest } from '../api/loginSignUp'
+import { signUpRequest } from '../api/user'
 
-function SignUp() {
+function SignUp({ setSignUp }) {
   const navigate = useNavigate()
 
   const [signUpForm, setSignUpForm] = useState({
@@ -15,6 +15,7 @@ function SignUp() {
     firstName: '',
     lastName: '',
     email: '',
+    role: 'Individual Account',
   })
 
   function handleChange(e) {
@@ -29,10 +30,11 @@ function SignUp() {
       username: '',
       password: '',
       firstName: '',
+      lastName: '',
       email: '',
     })
     console.log(result)
-    navigate('/')
+    setSignUp(() => false)
   }
   function handleClick(e) {
     e.preventDefault()

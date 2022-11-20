@@ -17,12 +17,12 @@ function Home() {
         <main className="w-full">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="user" element={<EditUser />} />
-            <Route path="trade-activity" element={<TradeActivity />} />
-            <Route path="market" element={<Market />} />
-            <Route path="market/:symbol" element={<Equity />} />
-            <Route path="live-transactions" element={<LiveTransactions />} />
-            <Route path="hall-of-fame" element={<HallOfFame />} />
+            <Route path="/user" element={<EditUser />} />
+            <Route path="/trade-activity" element={<TradeActivity />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/market/:symbol" element={<Equity />} />
+            <Route path="/live-transactions" element={<LiveTransactions />} />
+            <Route path="/hall-of-fame" element={<HallOfFame />} />
           </Routes>
         </main>
       </div>
